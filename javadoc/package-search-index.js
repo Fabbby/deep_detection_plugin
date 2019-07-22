@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"org.openstreetmap.josm.plugins.deep_detection"},{"l":"org.openstreetmap.josm.plugins.deep_detection.preferences"}]

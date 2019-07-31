@@ -21,7 +21,7 @@ import org.openstreetmap.josm.gui.layer.OsmDataLayer;
 import org.openstreetmap.josm.tools.ImageProvider;
 import org.openstreetmap.josm.tools.Shortcut;
 import org.openstreetmap.josm.data.osm.DataSet;
-//Log4J Libaries
+
 
 
 import javax.imageio.ImageIO;
@@ -38,15 +38,15 @@ import java.util.List;
 import static org.openstreetmap.josm.tools.I18n.tr;
 
 
-//import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.Logger;
-//import org.openstreetmap.josm.plugins.austriaaddresshelper.AustriaAddressHelperAction;
+
 
 
 
 
 public class DeepDetectionAction extends MapMode implements MouseListener {
 
+
+    //not in use
 /*
     protected int colorThreshold = ImageAnalyzer.DEFAULT_COLORTHRESHOLD,
             thinningIterations = ImageAnalyzer.DEFAULT_THINNING_ITERATIONS;
@@ -61,16 +61,15 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
             KEY_MERGENODES = PLUGIN_NAME + ".mergenodes", KEY_AAH = PLUGIN_NAME + ".austriaadresshelper",
             KEY_REPLACEBUILDINGS = PLUGIN_NAME + ".replacebuildings";
 
-   // protected Logger log = LogManager.getLogger(AreaSelectorAction.class.getCanonicalName());
+
 
     protected Point clickPoint = null;
 
     public DeepDetectionAction(MapFrame mapFrame) {
 
 
-        //hier die Anmeldung der Buttons !!
-        //erstmal durch Mouse Click wird vielleicht noch verbessert!
-        super(tr("Deep Detection Experiment"), "deepdetection", tr("Select  buildings from an underlying image."),
+        //Button registration
+        super(tr("Deep Detection Experiment"), "deep_detection", tr("Select buildings from an underlying image."),
                 Shortcut.registerShortcut("tools:deepdetection", tr("Tools: {0}", tr("Deep Detection")), KeyEvent.VK_A,
                         Shortcut.ALT_CTRL),
                 getCursor());
@@ -86,8 +85,9 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
         replaceBuildings = new BooleanProperty(KEY_REPLACEBUILDINGS, true).get();
     }
 
+    //BugFix(areaselector)
     private static Cursor getCursor() {
-        return ImageProvider.getCursor("crosshair", "areaselector");
+        return ImageProvider.getCursor("crosshair", "deep_detection");
     }
 
     @Override
@@ -113,6 +113,7 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
     /**
      * Invoked when the mouse button has been clicked (pressed and released) on
      * a component.
+     *
      */
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -133,18 +134,22 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
                     .show();
             SwingUtilities.invokeLater(new Runnable() {
 
+                /**
+                 * Creates satellite image and building outlines-image
+                 */
                 @Override
                 public void run() {
                     try {
-                       // createArea();
-                        System.out.println("Mouse Event erfolgreich");
+
+
                        BufferedImage bufferedImage_Layer= getLayeredImage();
                        BufferedImage bufferedImage_Label= getLableImage();
                        int increase=0;
-                        //Test für das Schreiben des Bildes
+
                         String name=String.valueOf(increase);
                         File label_file = new File("Bilderdaten"+File.separator+"layer"+name+".png");
                         File layer_file = new File("Bilderdaten"+File.separator+"image"+name+".png");
+
                         while(layer_file.exists()&& label_file.exists()){
                           increase++;
                           name=String.valueOf(increase);
@@ -157,15 +162,10 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
                             ImageIO.write(bufferedImage_Label,"png",label_file);
                         }
 
-                        //nochmal nachgucken!!! funktioniert noch nicht richtig
 
-
-                        //
-
-
-                        System.out.println("Bild erfolgreich erstellt");
                     } catch (Exception ex) {
                         //log.error("failed to add area", ex);
+                        //its not a good behavior
                         System.out.println(ex);
                        // new BugReportDialog(ex);
                     }
@@ -176,14 +176,11 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
     }
 
 
-
+    /**
+     * Return the image of the the MapView(satellite image)
+     * @return bufImage: satellite image
+     */
     public BufferedImage getLayeredImage() {
-
-        //Test
-      //  List<GpxData> allGpxData = MainApplication.getLayerManager().getActiveDataLayer();
-
-
-      //layer.isVisible() && layer.isBackgroundLayer()
 
         MapView mapView = MainApplication.getMap().mapView;
 
@@ -205,8 +202,8 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
     }
 
     /**
-     * Gibt nur die Labels des Bildes wieder. Je nach Konfiguration der Datenebene
-     * @return bufferedImage
+     * Return the background-image which provides the building outlines
+     * @return bufferedImage: building outlines
      */
     public BufferedImage getLableImage() {
 
@@ -234,10 +231,9 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
 
         return bufImage;
     }
-    //Umschreiben für das Erstellen eines Bildes !!
-    //img to file aus der File Image aus AreaSelector!
 
 
+//not in use
 
     /*public void createArea() {
 
@@ -328,9 +324,6 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
     }
 
 */
-    /**
-     * fetch Address using Austria Adress Helper
-     */
 /*    public OsmPrimitive fetchAddress(OsmPrimitive selectedObject) {
         try {
             log.info("trying to fetch address ");

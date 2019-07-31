@@ -117,7 +117,7 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
 
-       // log.info("mouse clicked " + e);
+
         System.out.println("mouse clicked"+ e);
 
         if (!MainApplication.getMap().mapView.isActiveLayerDrawable()) {

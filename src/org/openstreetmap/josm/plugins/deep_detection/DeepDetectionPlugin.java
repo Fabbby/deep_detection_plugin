@@ -35,9 +35,9 @@ public class DeepDetectionPlugin extends Plugin{
 
         deepDetectionAction = new DeepDetectionAction(MainApplication.getMap());
 
-        //deepTag ist das JMenuItem ohne Funktino
+
         deepTag=MainMenu.add(MainApplication.getMenu().moreToolsMenu,deepDetectionAction);
-        System.out.println("DeppLearning Awaiking");
+
 
     }
 
@@ -46,7 +46,7 @@ public class DeepDetectionPlugin extends Plugin{
             */
     @Override
     public void mapFrameInitialized(MapFrame oldFrame, MapFrame newFrame) {
-        System.out.println("DeppLearning Awaiking52");
+
         deepDetectionAction.updateMapFrame(oldFrame, newFrame);
 
         //Funktion noch überprüfen

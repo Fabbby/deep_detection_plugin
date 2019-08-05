@@ -61,15 +61,13 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
             KEY_MERGENODES = PLUGIN_NAME + ".mergenodes", KEY_AAH = PLUGIN_NAME + ".austriaadresshelper",
             KEY_REPLACEBUILDINGS = PLUGIN_NAME + ".replacebuildings";
 
-
-
     protected Point clickPoint = null;
 
     public DeepDetectionAction(MapFrame mapFrame) {
 
 
-        //Button registration
-        super(tr("Deep Detection Experiment"), "deep_detection", tr("Select buildings from an underlying image."),
+        //Button Registration
+        super(tr("Deep Detection"), "deepdetection", tr("Select buildings from an underlying image."),
                 Shortcut.registerShortcut("tools:deepdetection", tr("Tools: {0}", tr("Deep Detection")), KeyEvent.VK_A,
                         Shortcut.ALT_CTRL),
                 getCursor());
@@ -85,9 +83,8 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
         replaceBuildings = new BooleanProperty(KEY_REPLACEBUILDINGS, true).get();
     }
 
-    //BugFix(areaselector)
     private static Cursor getCursor() {
-        return ImageProvider.getCursor("crosshair", "deep_detection");
+        return ImageProvider.getCursor("crosshair", "areaselector");
     }
 
     @Override
@@ -113,7 +110,6 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
     /**
      * Invoked when the mouse button has been clicked (pressed and released) on
      * a component.
-     *
      */
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -140,16 +136,15 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
                 @Override
                 public void run() {
                     try {
-
-
+                       // createArea();
+                        System.out.println("Mouse Event erfolgreich");
                        BufferedImage bufferedImage_Layer= getLayeredImage();
                        BufferedImage bufferedImage_Label= getLableImage();
                        int increase=0;
-
+                        //Test für das Schreiben des Bildes
                         String name=String.valueOf(increase);
                         File label_file = new File("Bilderdaten"+File.separator+"layer"+name+".png");
                         File layer_file = new File("Bilderdaten"+File.separator+"image"+name+".png");
-
                         while(layer_file.exists()&& label_file.exists()){
                           increase++;
                           name=String.valueOf(increase);
@@ -165,7 +160,6 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
 
                     } catch (Exception ex) {
                         //log.error("failed to add area", ex);
-                        //its not a good behavior
                         System.out.println(ex);
                        // new BugReportDialog(ex);
                     }
@@ -178,7 +172,7 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
 
     /**
      * Return the image of the the MapView(satellite image)
-     * @return bufImage: satellite image
+     * @return bufImage:  satellite image
      */
     public BufferedImage getLayeredImage() {
 
@@ -233,7 +227,7 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
     }
 
 
-//not in use
+
 
     /*public void createArea() {
 
@@ -324,6 +318,9 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
     }
 
 */
+    /**
+     * fetch Address using Austria Adress Helper
+     */
 /*    public OsmPrimitive fetchAddress(OsmPrimitive selectedObject) {
         try {
             log.info("trying to fetch address ");

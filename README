@@ -4,11 +4,11 @@ German-Version
 
 # JOSM Deep Detection Plugin#
 
-##Beschreibung##
+##Beschreibung
     Deep Detection-Plugin ist ein Plugin für die Erstellung von Traningsdaten für ein Neuronales Netz , welches Gebäudeumrisse auf Basis derer Satellitenbilder erstellt (Link zu Steffan).
     Es speichert die aktuelle Sicht der Map und die Gebäudeumrisse und generiert Trainingsdaten für die Unet Implementierung.
 
-   ## Implementierung##
+   ## Implementierung
 
 
     svn co http://svn.openstreetmap.org/applications/editors/josm josm
@@ -31,7 +31,7 @@ Now Restart JOSM and activate the areaselector plugin in your preferences. Under
 
 
 
-##License##
+##License
 
 
 GPL v3

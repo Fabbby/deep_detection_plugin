@@ -22,7 +22,7 @@ import org.openstreetmap.josm.plugins.deep_detection.preferences.DeepDetectionPr
 
 
 /**
- * 
+ *Übernimmt die Anmeldung des Plugins
  */
 public class DeepDetectionPlugin extends Plugin{
 
@@ -36,6 +36,7 @@ public class DeepDetectionPlugin extends Plugin{
         deepDetectionAction = new DeepDetectionAction(MainApplication.getMap());
 
 
+        //add Toolbar
         deepTag=MainMenu.add(MainApplication.getMenu().moreToolsMenu,deepDetectionAction);
 
 

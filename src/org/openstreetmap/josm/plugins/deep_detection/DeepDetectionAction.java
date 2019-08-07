@@ -83,6 +83,10 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
         replaceBuildings = new BooleanProperty(KEY_REPLACEBUILDINGS, true).get();
     }
 
+    /**
+     * return a Cursor which provides the mous clicked function
+     * @return
+     */
     private static Cursor getCursor() {
         return ImageProvider.getCursor("crosshair", "areaselector");
     }
@@ -114,18 +118,17 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
 
-
-        System.out.println("mouse clicked"+ e);
-
         if (!MainApplication.getMap().mapView.isActiveLayerDrawable()) {
             return;
         }
+
         requestFocusInMapView();
+
         updateKeyModifiers(e);
         if (e.getButton() == MouseEvent.BUTTON1) {
             clickPoint = e.getPoint();
             LatLon coordinates = MainApplication.getMap().mapView.getLatLon(clickPoint.x, clickPoint.y);
-            new Notification("<strong>" + tr("DeepDetection") + "</strong><br />" + tr("Trying to detect an area at:")
+            new Notification("<strong>" + tr("DeepDetection") + "</strong><br />" + tr("Saving area-data from:")
                     + "<br>" + coordinates.getX() + ", " + coordinates.getY()).setIcon(JOptionPane.INFORMATION_MESSAGE)
                     .show();
             SwingUtilities.invokeLater(new Runnable() {
@@ -160,8 +163,10 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
 
                     } catch (Exception ex) {
                         //log.error("failed to add area", ex);
-                        System.out.println(ex);
-                       // new BugReportDialog(ex);
+                        System.out.println();
+                        JOptionPane.showMessageDialog(MainApplication.getMap(), tr("Unable to save this area : "+ex),
+                                tr("DeepDetection"), JOptionPane.WARNING_MESSAGE);
+
                     }
                 }
             });
@@ -201,7 +206,7 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
      */
     public BufferedImage getLableImage() {
 
-        //Test
+        //Test for GPX-DATA
         //  List<GpxData> allGpxData = MainApplication.getLayerManager().getActiveDataLayer();
 
 
@@ -336,7 +341,9 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
     }
 */
     /**
+     *
      * replace an existing way with the new detected one
+     *
      * @param existingWay old way
      * @param newWay new way
      * @return replaced way

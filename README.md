@@ -23,20 +23,19 @@ German-Version
     ant install
 
 
-Now Restart JOSM and activate the areaselector plugin in your preferences. Under Tools you should now see a new Tool called "Area Selector".
-    Autoren: Fabian Frings und Stefan Berger
-
-
-
-
+Now Restart JOSM and activate the "deep_detection" plugin in your preferences. Under Tools you should now see a new "More Tool" called "deep_detection".
 
 
 ## License
 
 
-GPL v3
-Its a modifikation of the Area_Selector_Plugin
-Fabian Frings und Stefan Berger
+
+Its a modifikation of the Area_Selector-Plugin ->https://github.com/JOSM/areaselector
+Some methods from aleaselctor were refractoring and modify.
+
+This plugin was developed by Fabian Frings und Stefan Berger
+
+This software is licensed under GPL v3
     * Plugin author and contact email address.
     
     * The license for your plugin source code. If you have no special preferences, 

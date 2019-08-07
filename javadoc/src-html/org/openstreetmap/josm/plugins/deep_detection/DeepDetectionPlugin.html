@@ -32,7 +32,7 @@
 <span class="sourceLineNo">022</span><a id="line.22"></a>
 <span class="sourceLineNo">023</span><a id="line.23"></a>
 <span class="sourceLineNo">024</span><a id="line.24">/**</a>
-<span class="sourceLineNo">025</span><a id="line.25"> * </a>
+<span class="sourceLineNo">025</span><a id="line.25"> *Übernimmt die Anmeldung des Plugins</a>
 <span class="sourceLineNo">026</span><a id="line.26"> */</a>
 <span class="sourceLineNo">027</span><a id="line.27">public class DeepDetectionPlugin extends Plugin{</a>
 <span class="sourceLineNo">028</span><a id="line.28"></a>
@@ -45,50 +45,51 @@
 <span class="sourceLineNo">035</span><a id="line.35"></a>
 <span class="sourceLineNo">036</span><a id="line.36">        deepDetectionAction = new DeepDetectionAction(MainApplication.getMap());</a>
 <span class="sourceLineNo">037</span><a id="line.37"></a>
-<span class="sourceLineNo">038</span><a id="line.38">        </a>
-<span class="sourceLineNo">039</span><a id="line.39">        deepTag=MainMenu.add(MainApplication.getMenu().moreToolsMenu,deepDetectionAction);</a>
-<span class="sourceLineNo">040</span><a id="line.40"></a>
+<span class="sourceLineNo">038</span><a id="line.38"></a>
+<span class="sourceLineNo">039</span><a id="line.39">        //add Toolbar</a>
+<span class="sourceLineNo">040</span><a id="line.40">        deepTag=MainMenu.add(MainApplication.getMenu().moreToolsMenu,deepDetectionAction);</a>
 <span class="sourceLineNo">041</span><a id="line.41"></a>
-<span class="sourceLineNo">042</span><a id="line.42">    }</a>
-<span class="sourceLineNo">043</span><a id="line.43"></a>
-<span class="sourceLineNo">044</span><a id="line.44">    /**</a>
-<span class="sourceLineNo">045</span><a id="line.45">            * Called when the JOSM map frame is created or destroyed.</a>
-<span class="sourceLineNo">046</span><a id="line.46">            */</a>
-<span class="sourceLineNo">047</span><a id="line.47">    @Override</a>
-<span class="sourceLineNo">048</span><a id="line.48">    public void mapFrameInitialized(MapFrame oldFrame, MapFrame newFrame) {</a>
-<span class="sourceLineNo">049</span><a id="line.49"></a>
-<span class="sourceLineNo">050</span><a id="line.50">        deepDetectionAction.updateMapFrame(oldFrame, newFrame);</a>
-<span class="sourceLineNo">051</span><a id="line.51"></a>
-<span class="sourceLineNo">052</span><a id="line.52">        //Funktion noch überprüfen</a>
-<span class="sourceLineNo">053</span><a id="line.53">        boolean enabled= newFrame != null;</a>
-<span class="sourceLineNo">054</span><a id="line.54">        deepTag.setEnabled(enabled);</a>
-<span class="sourceLineNo">055</span><a id="line.55">    }</a>
-<span class="sourceLineNo">056</span><a id="line.56"></a>
-<span class="sourceLineNo">057</span><a id="line.57">    public DeepDetectionAction getAreaSelectorAction() {</a>
-<span class="sourceLineNo">058</span><a id="line.58">        return deepDetectionAction;</a>
-<span class="sourceLineNo">059</span><a id="line.59">    }</a>
-<span class="sourceLineNo">060</span><a id="line.60"></a>
-<span class="sourceLineNo">061</span><a id="line.61">    protected LoggerContext setupLogging(){</a>
-<span class="sourceLineNo">062</span><a id="line.62">        ConfigurationBuilder&lt;BuiltConfiguration&gt; builder = ConfigurationBuilderFactory.newConfigurationBuilder();</a>
-<span class="sourceLineNo">063</span><a id="line.63">        builder.setStatusLevel(Level.ERROR);</a>
-<span class="sourceLineNo">064</span><a id="line.64">        builder.setConfigurationName("BuilderTest");</a>
-<span class="sourceLineNo">065</span><a id="line.65">        builder.add(builder.newFilter("ThresholdFilter", Filter.Result.ACCEPT, Filter.Result.NEUTRAL)</a>
-<span class="sourceLineNo">066</span><a id="line.66">                .addAttribute("level", Level.DEBUG));</a>
-<span class="sourceLineNo">067</span><a id="line.67">        AppenderComponentBuilder appenderBuilder = builder.newAppender("Stdout", "CONSOLE").addAttribute("target",</a>
-<span class="sourceLineNo">068</span><a id="line.68">                ConsoleAppender.Target.SYSTEM_OUT);</a>
-<span class="sourceLineNo">069</span><a id="line.69">        appenderBuilder.add(builder.newLayout("PatternLayout")</a>
-<span class="sourceLineNo">070</span><a id="line.70">                .addAttribute("pattern", "%d [%t] %-5level: %msg%n%throwable"));</a>
-<span class="sourceLineNo">071</span><a id="line.71">        appenderBuilder.add(builder.newFilter("MarkerFilter", Filter.Result.DENY, Filter.Result.NEUTRAL)</a>
-<span class="sourceLineNo">072</span><a id="line.72">                .addAttribute("marker", "FLOW"));</a>
-<span class="sourceLineNo">073</span><a id="line.73">        builder.add(appenderBuilder);</a>
-<span class="sourceLineNo">074</span><a id="line.74">        //              builder.add(builder.newLogger("org.apache.logging.log4j", Level.DEBUG)</a>
-<span class="sourceLineNo">075</span><a id="line.75">        //                              .add(builder.newAppenderRef("Stdout")).addAttribute("additivity", false));</a>
-<span class="sourceLineNo">076</span><a id="line.76">        builder.add(builder.newRootLogger(Level.INFO).add(builder.newAppenderRef("Stdout")));</a>
-<span class="sourceLineNo">077</span><a id="line.77">        LoggerContext ctx = Configurator.initialize(builder.build());</a>
-<span class="sourceLineNo">078</span><a id="line.78">        return ctx;</a>
-<span class="sourceLineNo">079</span><a id="line.79">    }</a>
-<span class="sourceLineNo">080</span><a id="line.80">}</a>
-<span class="sourceLineNo">081</span><a id="line.81"></a>
+<span class="sourceLineNo">042</span><a id="line.42"></a>
+<span class="sourceLineNo">043</span><a id="line.43">    }</a>
+<span class="sourceLineNo">044</span><a id="line.44"></a>
+<span class="sourceLineNo">045</span><a id="line.45">    /**</a>
+<span class="sourceLineNo">046</span><a id="line.46">            * Called when the JOSM map frame is created or destroyed.</a>
+<span class="sourceLineNo">047</span><a id="line.47">            */</a>
+<span class="sourceLineNo">048</span><a id="line.48">    @Override</a>
+<span class="sourceLineNo">049</span><a id="line.49">    public void mapFrameInitialized(MapFrame oldFrame, MapFrame newFrame) {</a>
+<span class="sourceLineNo">050</span><a id="line.50"></a>
+<span class="sourceLineNo">051</span><a id="line.51">        deepDetectionAction.updateMapFrame(oldFrame, newFrame);</a>
+<span class="sourceLineNo">052</span><a id="line.52"></a>
+<span class="sourceLineNo">053</span><a id="line.53">        //Funktion noch überprüfen</a>
+<span class="sourceLineNo">054</span><a id="line.54">        boolean enabled= newFrame != null;</a>
+<span class="sourceLineNo">055</span><a id="line.55">        deepTag.setEnabled(enabled);</a>
+<span class="sourceLineNo">056</span><a id="line.56">    }</a>
+<span class="sourceLineNo">057</span><a id="line.57"></a>
+<span class="sourceLineNo">058</span><a id="line.58">    public DeepDetectionAction getAreaSelectorAction() {</a>
+<span class="sourceLineNo">059</span><a id="line.59">        return deepDetectionAction;</a>
+<span class="sourceLineNo">060</span><a id="line.60">    }</a>
+<span class="sourceLineNo">061</span><a id="line.61"></a>
+<span class="sourceLineNo">062</span><a id="line.62">    protected LoggerContext setupLogging(){</a>
+<span class="sourceLineNo">063</span><a id="line.63">        ConfigurationBuilder&lt;BuiltConfiguration&gt; builder = ConfigurationBuilderFactory.newConfigurationBuilder();</a>
+<span class="sourceLineNo">064</span><a id="line.64">        builder.setStatusLevel(Level.ERROR);</a>
+<span class="sourceLineNo">065</span><a id="line.65">        builder.setConfigurationName("BuilderTest");</a>
+<span class="sourceLineNo">066</span><a id="line.66">        builder.add(builder.newFilter("ThresholdFilter", Filter.Result.ACCEPT, Filter.Result.NEUTRAL)</a>
+<span class="sourceLineNo">067</span><a id="line.67">                .addAttribute("level", Level.DEBUG));</a>
+<span class="sourceLineNo">068</span><a id="line.68">        AppenderComponentBuilder appenderBuilder = builder.newAppender("Stdout", "CONSOLE").addAttribute("target",</a>
+<span class="sourceLineNo">069</span><a id="line.69">                ConsoleAppender.Target.SYSTEM_OUT);</a>
+<span class="sourceLineNo">070</span><a id="line.70">        appenderBuilder.add(builder.newLayout("PatternLayout")</a>
+<span class="sourceLineNo">071</span><a id="line.71">                .addAttribute("pattern", "%d [%t] %-5level: %msg%n%throwable"));</a>
+<span class="sourceLineNo">072</span><a id="line.72">        appenderBuilder.add(builder.newFilter("MarkerFilter", Filter.Result.DENY, Filter.Result.NEUTRAL)</a>
+<span class="sourceLineNo">073</span><a id="line.73">                .addAttribute("marker", "FLOW"));</a>
+<span class="sourceLineNo">074</span><a id="line.74">        builder.add(appenderBuilder);</a>
+<span class="sourceLineNo">075</span><a id="line.75">        //              builder.add(builder.newLogger("org.apache.logging.log4j", Level.DEBUG)</a>
+<span class="sourceLineNo">076</span><a id="line.76">        //                              .add(builder.newAppenderRef("Stdout")).addAttribute("additivity", false));</a>
+<span class="sourceLineNo">077</span><a id="line.77">        builder.add(builder.newRootLogger(Level.INFO).add(builder.newAppenderRef("Stdout")));</a>
+<span class="sourceLineNo">078</span><a id="line.78">        LoggerContext ctx = Configurator.initialize(builder.build());</a>
+<span class="sourceLineNo">079</span><a id="line.79">        return ctx;</a>
+<span class="sourceLineNo">080</span><a id="line.80">    }</a>
+<span class="sourceLineNo">081</span><a id="line.81">}</a>
+<span class="sourceLineNo">082</span><a id="line.82"></a>
 
 
 

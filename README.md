@@ -43,6 +43,8 @@ Bild von Satellitenbilder
 Bild von Datenebenden
 ![alt text](http://url/to/img.png)
 
+###Output
+The storage location of the data is in the home directory of the user under deep_detection_images.
 
 ## Version
 The deep detection extension is compatible with JOSM version 15238 (tested version) and requires the plugins "Area Selector,...,...

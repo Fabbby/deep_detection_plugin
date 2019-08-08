@@ -3,9 +3,9 @@ README
 # JOSM Deep Detection Plugin
 
 ## Beschreibung
-    Deep Detection-Plugin is a plugin for creating training data for a neural network (unet), which creates building outlines based on       satellite images. 
+    Deep Detection-Plugin is a plugin to create training data for a neural network (unet), which creates building outlines based on       satellite images. 
     Unet implementation  https://github.com/Machuntox/unet.
-    It stores the current view of the map and the building outlines and generates training data for the Unet implementation.
+    It stores the current view of the map, the building outlines and generates training data for the Unet implementation.
 
    ## Building from sources
    
@@ -23,13 +23,14 @@ README
     
 Run JOSM jar under josm/core/dist/josm_custom.jar
 
-Now Restart JOSM and activate the "deep_detection" plugin in your preferences. Under "More Tools" you should now see a new Tool called "deep_detection". 
+Restart JOSM and activate the "deep_detection" plugin in your preferences. Under "More Tools" you should see a new tool called "deep_detection". 
 
 
 ### Filter in JOSM
 
-For the correct use of the plugin fuction a filter has to be created in JOSM:
+For the correct use of the plugin function a filter has to be created in JOSM:
 ![alt text](http://url/to/img.png)
+
 
 Creating filters in JOSM
 https://josm.openstreetmap.de/wiki/Help/Dialog/Filter
@@ -47,13 +48,13 @@ Bild von Datenebenden
 The storage location of the data is in the home directory of the user under deep_detection_images.
 
 ## Version
-The deep detection extension is compatible with JOSM version 15238 (tested version) and requires the plugins "Area Selector,...,...
+The deep detection extension is compatible with JOSM version 15238 (tested version) and requires the plugins "Area Selector, austriaadresshelper,log4j"
 
 
 ## License
 
-Its a modifikation of the Area_Selector-Plugin @ https://github.com/JOSM/areaselector
-Methods from aleaselctor were refractored and modifyed.
+It is a modification of the Area_Selector-Plugin https://github.com/JOSM/areaselector
+Methods from Area_Selector-Plugin are refractored and modifyed.
 The icons are based on Area Selector Plugin.
 The plugin was developed as part of the Big Data Internship at DBS Leipzig and is used exclusively for research purposes.
 

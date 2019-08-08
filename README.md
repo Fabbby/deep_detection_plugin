@@ -40,6 +40,7 @@ https://josm.openstreetmap.de/wiki/Help/Dialog/Filter
 Two data levels are required. The data layer containing the building outlines (filter applied) and any satellite image layer (JOSM->Backgrounds->Satellite Images).
 
 data levels:
+
 ![alt text](https://github.com/Fabbby/deep_detection_plugin/blob/master/data_layer.PNG)
 
 ### Output

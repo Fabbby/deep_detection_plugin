@@ -21,6 +21,8 @@ README
     ant dist
     ant install
     
+Run JOSM jar under josm/core/dist/josm_custom.jar
+
 Now Restart JOSM and activate the "deep_detection" plugin in your preferences. Under "More Tools" you should now see a new Tool called "deep_detection". 
 
 

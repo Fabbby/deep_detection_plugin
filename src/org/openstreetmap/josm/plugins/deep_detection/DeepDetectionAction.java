@@ -139,20 +139,19 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
                 @Override
                 public void run() {
                     try {
-
                         BufferedImage bufferedImage_Layer= getLayeredImage();
                         BufferedImage bufferedImage_Label= getLableImage();
+                        String homepath=System.getProperty("user.home");
 
                         int increase=0;
-                        String homepath=System.getProperty("user.home");
+                        //Test für das Schreiben des Bildes
+                        String name=String.valueOf(increase);
                         File directory = new File(homepath +File.separator+"deep_detection_images");
 
-                        String name=String.valueOf(increase);
                         String label_path=homepath+File.separator+"deep_detection_images"+File.separator+"layer"+name+".png";
                         String image_path=homepath+File.separator+"deep_detection_images"+File.separator+"image"+name+".png";
 
 
-                        //Test für das Schreiben des Bildes
                         File label_file = new File(label_path);
                         File image_file = new File(image_path);
 
@@ -162,6 +161,7 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
 
                             label_path=homepath+File.separator+"deep_detection_images"+File.separator+"layer"+name+".png";
                             image_path=homepath+File.separator+"deep_detection_images"+File.separator+"image"+name+".png";
+
                             image_file=new File(image_path);
                             label_file=new File(label_path);
 
@@ -175,6 +175,7 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
                             ImageIO.write(bufferedImage_Layer, "png", image_file);
                             ImageIO.write(bufferedImage_Label,"png",label_file);
                         }
+
 
 
                     } catch (Exception ex) {

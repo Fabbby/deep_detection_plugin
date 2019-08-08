@@ -29,7 +29,7 @@ Restart JOSM and activate the "deep_detection" plugin in your preferences. Under
 ### Filter in JOSM
 
 For the correct use of the plugin function a filter has to be created in JOSM:
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/Fabbby/deep_detection_plugin/blob/master/filter.PNG)
 
 
 Creating filters in JOSM
@@ -39,10 +39,8 @@ https://josm.openstreetmap.de/wiki/Help/Dialog/Filter
  
 Two data levels are required. The data layer containing the building outlines (filter applied) and any satellite image layer (JOSM->Backgrounds->Satellite Images).
 
-Bild von Satellitenbilder
-![alt text](http://url/to/img.png)
-Bild von Datenebenden
-![alt text](http://url/to/img.png)
+data levels:
+![alt text](https://github.com/Fabbby/deep_detection_plugin/blob/master/data_layer.PNG)
 
 ### Output
 The storage location of the data is in the home directory of the user under deep_detection_images.

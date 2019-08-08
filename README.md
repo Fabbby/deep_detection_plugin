@@ -4,7 +4,7 @@ README
 
 ## Beschreibung
     Deep Detection-Plugin is a plugin for creating training data for a neural network (unet), which creates building outlines based on       satellite images. 
-    Unet implementation:https://github.com/Machuntox/unet.
+    Unet implementation  https://github.com/Machuntox/unet.
     It stores the current view of the map and the building outlines and generates training data for the Unet implementation.
 
    ## Building from sources

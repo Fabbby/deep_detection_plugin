@@ -3,10 +3,6 @@ README
 # JOSM Deep Detection Plugin
 
 ## Beschreibung
-    Deep Detection-Plugin ist ein Plugin für die Erstellung von Traningsdaten für ein Neuronales Netz(unet) , welches Gebäudeumrisse auf     Basis derer Satellitenbilder erstellt 
-    Unet Implementierung https://github.com/Machuntox/unet.
-    Es speichert die aktuelle Sicht der Map und die Gebäudeumrisse und generiert Trainingsdaten für die Unet Implementierung.
-    
     Deep Detection-Plugin is a plugin for creating training data for a neural network (unet), which creates building outlines based on       satellite images. 
     Unet implementation:https://github.com/Machuntox/unet.
     It stores the current view of the map and the building outlines and generates training data for the Unet implementation.
@@ -51,7 +47,7 @@ The deep detection extension is compatible with JOSM version 15238 (tested versi
 
 
 ## License
-Die Software ist unter der GPL v3 lizenziert.
+
 Its a modifikation of the Area_Selector-Plugin @ https://github.com/JOSM/areaselector
 Methods from aleaselctor were refractored and modifyed.
 The icons are based on Area Selector Plugin.

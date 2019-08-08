@@ -43,7 +43,7 @@ Bild von Satellitenbilder
 Bild von Datenebenden
 ![alt text](http://url/to/img.png)
 
-###Output
+### Output
 The storage location of the data is in the home directory of the user under deep_detection_images.
 
 ## Version

@@ -139,24 +139,40 @@ public class DeepDetectionAction extends MapMode implements MouseListener {
                 @Override
                 public void run() {
                     try {
-                       // createArea();
-                        System.out.println("Mouse Event erfolgreich");
-                       BufferedImage bufferedImage_Layer= getLayeredImage();
-                       BufferedImage bufferedImage_Label= getLableImage();
-                       int increase=0;
-                        //Test für das Schreiben des Bildes
+
+                        BufferedImage bufferedImage_Layer= getLayeredImage();
+                        BufferedImage bufferedImage_Label= getLableImage();
+
+                        int increase=0;
+                        String homepath=System.getProperty("user.home");
+                        File directory = new File(homepath +File.separator+"deep_detection_images");
+
                         String name=String.valueOf(increase);
-                        File label_file = new File("Bilderdaten"+File.separator+"layer"+name+".png");
-                        File layer_file = new File("Bilderdaten"+File.separator+"image"+name+".png");
-                        while(layer_file.exists()&& label_file.exists()){
-                          increase++;
-                          name=String.valueOf(increase);
-                          layer_file=new File("Bilderdaten"+File.separator+"image"+name+".png");
-                          label_file=new File("Bilderdaten"+File.separator+"layer"+name+".png");
+                        String label_path=homepath+File.separator+"deep_detection_images"+File.separator+"layer"+name+".png";
+                        String image_path=homepath+File.separator+"deep_detection_images"+File.separator+"image"+name+".png";
+
+
+                        //Test für das Schreiben des Bildes
+                        File label_file = new File(label_path);
+                        File image_file = new File(image_path);
+
+                        while(image_file.exists()&& label_file.exists()){
+                            increase++;
+                            name=String.valueOf(increase);
+
+                            label_path=homepath+File.separator+"deep_detection_images"+File.separator+"layer"+name+".png";
+                            image_path=homepath+File.separator+"deep_detection_images"+File.separator+"image"+name+".png";
+                            image_file=new File(image_path);
+                            label_file=new File(label_path);
 
                         }
-                        if(!layer_file.exists()&& !label_file.exists()){
-                            ImageIO.write(bufferedImage_Layer, "png", layer_file);
+                        if(!image_file.exists()&& !label_file.exists()){
+
+                            if (! directory.exists()){
+                                directory.mkdir();
+                            }
+
+                            ImageIO.write(bufferedImage_Layer, "png", image_file);
                             ImageIO.write(bufferedImage_Label,"png",label_file);
                         }
 
